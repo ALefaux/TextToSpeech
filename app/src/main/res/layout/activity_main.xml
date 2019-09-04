@@ -6,13 +6,69 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
+    <EditText
+        android:id="@+id/et_main_url"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ellipsize="start"
+        android:hint="URL Wikipédia"
+        android:singleLine="true"
+        app:layout_constraintBottom_toBottomOf="@id/bt_main_scrap"
+        app:layout_constraintEnd_toStartOf="@id/bt_main_scrap"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/bt_main_scrap" />
+
+    <Button
+        android:id="@+id/bt_main_scrap"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        android:text="Scrap"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/bt_main_start"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bt_main_scrap">
+
+        <TextView
+            android:id="@+id/tv_main_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </androidx.core.widget.NestedScrollView>
+
+    <Button
+        android:id="@+id/bt_main_start"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:enabled="false"
+        android:text="Lecture"
+        app:layout_constraintBottom_toTopOf="@id/bt_main_pause"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/bt_main_pause"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Pause"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@id/bt_main_stop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/bt_main_stop"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Stop"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
