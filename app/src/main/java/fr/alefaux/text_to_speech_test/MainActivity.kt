@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity() {
 
         bt_main_start.setOnClickListener {
             val textToRead = tv_main_text.text.toString()
-            // textToSpeech.read(textToRead)
+            textToSpeech.read(textToRead)
             bt_main_start.hide()
             bt_main_pause.show()
             bt_main_stop.show()
