@@ -1,11 +1,11 @@
 package fr.alefaux.text_to_speech_test
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import org.jsoup.Jsoup
+import timber.log.Timber
 import java.lang.Exception
 
 class MainViewModel: ViewModel() {
@@ -23,13 +23,13 @@ class MainViewModel: ViewModel() {
                     this.select(".homonymie").remove()
                     val html = this.select(".mw-parser-output").html()
 
-                    Log.d("MainViewModel", html)
+                    Timber.d(html)
 
                     articleLiveData.postValue(html)
                 }
             }
         } catch (e: Exception) {
-            Log.e("Jsoup", "$e")
+            Timber.e("$e")
         }
     }
 }

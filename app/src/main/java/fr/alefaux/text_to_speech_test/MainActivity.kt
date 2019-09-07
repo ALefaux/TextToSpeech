@@ -8,6 +8,7 @@ import fr.alefaux.text_to_speech_test.extensions.show
 import fr.alefaux.texttospeech.TextToSpeech
 import kotlinx.android.synthetic.main.activity_main.*
 import org.koin.android.viewmodel.ext.android.viewModel
+import timber.log.Timber
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
