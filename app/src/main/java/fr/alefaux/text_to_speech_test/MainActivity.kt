@@ -23,6 +23,7 @@ class MainActivity : AppCompatActivity() {
 
         if(BuildConfig.DEBUG) {
             et_main_url.setText("https://fr.wikipedia.org/wiki/Ford_Mustang")
+            scrap()
         }
 
         textToSpeech = TextToSpeech(this, android.speech.tts.TextToSpeech.OnInitListener { status ->
@@ -33,8 +34,7 @@ class MainActivity : AppCompatActivity() {
         })
 
         bt_main_scrap.setOnClickListener {
-            val urlToScrap = et_main_url.text.toString()
-            viewModel.scrapWikipedia(urlToScrap)
+            scrap()
         }
 
         bt_main_start.setOnClickListener {
@@ -46,11 +46,13 @@ class MainActivity : AppCompatActivity() {
         }
 
         bt_main_pause.setOnClickListener {
+            textToSpeech.pause()
             bt_main_pause.hide()
             bt_main_start.show()
         }
 
         bt_main_stop.setOnClickListener {
+            textToSpeech.stop()
             bt_main_stop.hide()
             bt_main_pause.hide()
             bt_main_start.show()
@@ -65,6 +67,12 @@ class MainActivity : AppCompatActivity() {
                 bt_main_start.isEnabled = false
             }
         })
+    }
+
+    private fun scrap() {
+        val urlToScrap = et_main_url.text.toString()
+        Timber.d("Perform click $urlToScrap")
+        viewModel.scrapWikipedia(urlToScrap)
     }
 
 }
