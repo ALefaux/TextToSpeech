@@ -1,6 +1,24 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'com.novoda.bintray-release'
+
+publish {
+
+    def groupProjectID = 'fr.alefaux'
+    def artifactProjectID = 'texttospeech'
+    def publishVersionID = '1.0.0'
+
+    userOrg = 'alefaux'
+    repoName = 'TextToSpeech'
+    groupId = groupProjectID
+    artifactId = artifactProjectID
+    publishVersion = publishVersionID
+    desc = ''
+    website = 'https://github.com/ALefaux/TextToSpeech'
+
+}
+
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
